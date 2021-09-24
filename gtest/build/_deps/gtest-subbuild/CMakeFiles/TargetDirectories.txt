@@ -1,0 +1,3 @@
+/home/bojan/Desktop/unitTests/gtest-demo/build/_deps/gtest-subbuild/CMakeFiles/rebuild_cache.dir
+/home/bojan/Desktop/unitTests/gtest-demo/build/_deps/gtest-subbuild/CMakeFiles/edit_cache.dir
+/home/bojan/Desktop/unitTests/gtest-demo/build/_deps/gtest-subbuild/CMakeFiles/gtest-populate.dir
