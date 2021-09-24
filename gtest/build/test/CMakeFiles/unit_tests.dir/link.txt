@@ -1,0 +1,1 @@
+/usr/bin/c++    --coverage CMakeFiles/unit_tests.dir/example_add.cpp.o CMakeFiles/unit_tests.dir/example_subtract.cpp.o CMakeFiles/unit_tests.dir/example_multiply.cpp.o  -o ../bin/unit_tests  ../lib/libexample.a ../lib/libgtest_main.a ../lib/libgtest.a -lpthread 

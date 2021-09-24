@@ -1,0 +1,7 @@
+add_test( example.add //home/bojan/Desktop/unitTests/gtest-demo/build/bin/unit_tests [==[--gtest_filter=example.add]==] --gtest_also_run_disabled_tests)
+set_tests_properties( example.add PROPERTIES WORKING_DIRECTORY //home/bojan/Desktop/unitTests/gtest-demo/build/test LABELS unit)
+add_test( example.subtract //home/bojan/Desktop/unitTests/gtest-demo/build/bin/unit_tests [==[--gtest_filter=example.subtract]==] --gtest_also_run_disabled_tests)
+set_tests_properties( example.subtract PROPERTIES WORKING_DIRECTORY //home/bojan/Desktop/unitTests/gtest-demo/build/test LABELS unit)
+add_test( example.multiply //home/bojan/Desktop/unitTests/gtest-demo/build/bin/unit_tests [==[--gtest_filter=example.multiply]==] --gtest_also_run_disabled_tests)
+set_tests_properties( example.multiply PROPERTIES WORKING_DIRECTORY //home/bojan/Desktop/unitTests/gtest-demo/build/test LABELS unit)
+set( unit_tests_TESTS example.add example.subtract example.multiply)

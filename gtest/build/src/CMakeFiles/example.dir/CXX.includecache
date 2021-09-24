@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+//home/bojan/Desktop/unitTests/gtest-demo/src/example.cpp
+example.h
+//home/bojan/Desktop/unitTests/gtest-demo/src/example.h
+
+//home/bojan/Desktop/unitTests/gtest-demo/src/example.h
+
