@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1634285579 source:c:\users\bpejic\desktop\c\sudokusolver\main.cpp
+	<iostream>
+	<vector>
+	<stdlib.h>
+	<algorithm>
+	<functional>
+	<iterator>
+	<list>
+	<bits/stdc++.h>
+	"sudokuSolverFunctions.h"
+
+1634284465 source:c:\users\bpejic\desktop\c\sudokusolver\sudokusolverfunctions.cpp
+	"sudokuSolverFunctions.h"
+
+1634285527 c:\users\bpejic\desktop\c\sudokusolver\sudokusolverfunctions.h
+	<iostream>
+	<vector>
+	<stdlib.h>
+	<algorithm>
+	<functional>
+	<iterator>
+	<list>
+	<bits/stdc++.h>
+
