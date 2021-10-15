@@ -8,7 +8,7 @@
 #include<bits/stdc++.h>
 #include "sudokuSolverFunctions.h"
 
-int puzzle[9][9] =
+int puzzle[SUDOKU_SIZE][SUDOKU_SIZE] =
         {{5,3,0,0,7,0,0,0,0},
           {6,0,0,1,9,5,0,0,0},
           {0,9,8,0,0,0,0,6,0},
@@ -29,5 +29,6 @@ solveSudoku(puzzle);
 displaySudoku(puzzle);
 sudokuFinished(puzzle);
 validateSudoku(puzzle);
+
     return 0;
 }

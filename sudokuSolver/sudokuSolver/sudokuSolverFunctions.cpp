@@ -1,5 +1,5 @@
 #include "sudokuSolverFunctions.h"
-
+const int sqrt_sudoku_size=SQRT_SUDOKU_SIZE;
 int findMissing(int a[], int b[], int n, int m)
 {
     for (int i = 0; i < n; i++)
@@ -22,7 +22,7 @@ int findMissing(int a[], int b[], int n, int m)
 
 bool zeroValidator(int a[])
 {
-    for (int i=0; i<9; i++)
+    for (int i=0; i<SUDOKU_SIZE; i++)
     {
         if(a[i]==0)
         {
@@ -44,22 +44,21 @@ void removeDuplicates(std::vector<int> &v)
     v.erase(end, v.end());
 }
 
-int findInSquare(int puzzle[9][9],int pozX,int pozY)
+int findInSquare(int puzzle[SUDOKU_SIZE][SUDOKU_SIZE],int pozX,int pozY)
 {
-    int listaBrojeva[10]= {0,1,2,3,4,5,6,7,8,9};
+    int listaBrojeva[10]= {0,1,2,sqrt_sudoku_size,4,5,6,7,8,SUDOKU_SIZE};
 
     vector<int> a;
-    a.clear();
-    for(int i=0; i<9; i++)
+    for(int i=0; i<SUDOKU_SIZE; i++)
     {
         a.push_back(puzzle[pozX][i]);
         a.push_back(puzzle[i][pozY]);
     }
-    for(int i=0; i<3; i++)
+    for(int i=0; i<sqrt_sudoku_size; i++)
     {
-        a.push_back(puzzle[pozX - pozX % 3 + i][pozY - pozY % 3 + 0]);
-        a.push_back(puzzle[pozX - pozX % 3 + i][pozY - pozY % 3 + 1]);
-        a.push_back(puzzle[pozX - pozX % 3 + i][pozY - pozY % 3 + 2]);
+        a.push_back(puzzle[pozX - pozX % sqrt_sudoku_size + i][pozY - pozY % sqrt_sudoku_size + 0]);
+        a.push_back(puzzle[pozX - pozX % sqrt_sudoku_size + i][pozY - pozY % sqrt_sudoku_size + 1]);
+        a.push_back(puzzle[pozX - pozX % sqrt_sudoku_size + i][pozY - pozY % sqrt_sudoku_size + 2]);
     }
 
     sort(a.begin(), a.end());
@@ -73,22 +72,22 @@ int findInSquare(int puzzle[9][9],int pozX,int pozY)
     }
 
     int missingNumber=0;
-    if (sizeArray>=9)
+    if (sizeArray>=SUDOKU_SIZE)
     {
-        missingNumber=findMissing(listaBrojeva,lista,10,9);
+        missingNumber=findMissing(listaBrojeva,lista,10,SUDOKU_SIZE);
     }
 
     a.clear();
     return missingNumber;
 }
 
-int solveSudoku(int puzzle [9][9])
+int solveSudoku(int puzzle [SUDOKU_SIZE][SUDOKU_SIZE])
 {
-    while ( zeroValidator(puzzle[0]) || zeroValidator(puzzle[1])  || zeroValidator(puzzle[2]) || zeroValidator(puzzle[3])  || zeroValidator(puzzle[4]) ||  zeroValidator(puzzle[5]) || zeroValidator(puzzle[6])|| zeroValidator(puzzle[7]) || zeroValidator(puzzle[8]))
+    while ( zeroValidator(puzzle[0]) || zeroValidator(puzzle[1])  || zeroValidator(puzzle[2]) || zeroValidator(puzzle[sqrt_sudoku_size])  || zeroValidator(puzzle[4]) ||  zeroValidator(puzzle[5]) || zeroValidator(puzzle[6])|| zeroValidator(puzzle[7]) || zeroValidator(puzzle[8]))
     {
-        for(int i=0; i<9; i++)
+        for(int i=0; i<SUDOKU_SIZE; i++)
         {
-            for(int j=0; j<9; j++)
+            for(int j=0; j<SUDOKU_SIZE; j++)
             {
                 if (puzzle[i][j]==0)
                 {
@@ -98,22 +97,22 @@ int solveSudoku(int puzzle [9][9])
         }
     }
 }
-void displaySudoku(int puzzle[9][9])
+void displaySudoku(int puzzle[SUDOKU_SIZE][SUDOKU_SIZE])
 {
-    for(int i=0; i<9; i++)
+    for(int i=0; i<SUDOKU_SIZE; i++)
     {
-        for(int j=0; j<9; j++)
+        for(int j=0; j<SUDOKU_SIZE; j++)
         {
             cout<< puzzle[i][j]<<"  ";
         }
         cout<<endl;
     }
 }
-void sudokuFinished(int puzzle[9][9])
+void sudokuFinished(int puzzle[SUDOKU_SIZE][SUDOKU_SIZE])
 {
-    for(int i =0;i< 9;i++)
+    for(int i =0;i< SUDOKU_SIZE;i++)
     {
-        for(int j=0;j<9;j++)
+        for(int j=0;j<SUDOKU_SIZE;j++)
         {
             if(puzzle[i][j]==0)
             {
@@ -125,40 +124,40 @@ void sudokuFinished(int puzzle[9][9])
     cout<<endl<<"Sudoku is finished"<<endl;
 }
 
-bool validateNumber(int puzzle[9][9],int pozX,int pozY)
+bool validateNumber(int puzzle[SUDOKU_SIZE][SUDOKU_SIZE],int pozX,int pozY)
 {
  vector<int> a;
- int validationArray[27];
+ int validationArray[SUDOKU_SIZE*sqrt_sudoku_size];
     a.clear();
-    for(int i=0; i<9; i++)
+    for(int i=0; i<SUDOKU_SIZE; i++)
     {
         a.push_back(puzzle[pozX][i]);
         a.push_back(puzzle[i][pozY]);
     }
-    for(int i=0; i<3; i++)
+    for(int i=0; i<sqrt_sudoku_size; i++)
     {
-        a.push_back(puzzle[pozX - pozX % 3 + i][pozY - pozY % 3 + 0]);
-        a.push_back(puzzle[pozX - pozX % 3 + i][pozY - pozY % 3 + 1]);
-        a.push_back(puzzle[pozX - pozX % 3 + i][pozY - pozY % 3 + 2]);
+        a.push_back(puzzle[pozX - pozX % sqrt_sudoku_size + i][pozY - pozY % sqrt_sudoku_size + 0]);
+        a.push_back(puzzle[pozX - pozX % sqrt_sudoku_size + i][pozY - pozY % sqrt_sudoku_size + 1]);
+        a.push_back(puzzle[pozX - pozX % sqrt_sudoku_size + i][pozY - pozY % sqrt_sudoku_size + 2]);
     }
 
     sort(a.begin(), a.end());
 
-    for(int i=0;i<27;i++)
+    for(int i=0;i<SUDOKU_SIZE*sqrt_sudoku_size;i++)
     {
         validationArray[i]=a[i];
-        if((i-i%3)/3+1 != validationArray[i])
+        if((i-i%sqrt_sudoku_size)/sqrt_sudoku_size+1 != validationArray[i])
         {
             return false;
         }
     }
     return true;
 }
-bool validateSudoku(int puzzle[9][9])
+bool validateSudoku(int puzzle[SUDOKU_SIZE][SUDOKU_SIZE])
 {
-    for(int i=0;i<9;i++)
+    for(int i=0;i<SUDOKU_SIZE;i++)
     {
-        for(int j=0;j<9;j++)
+        for(int j=0;j<SUDOKU_SIZE;j++)
         {
             if(validateNumber(puzzle,i,j)!=true)
             {
