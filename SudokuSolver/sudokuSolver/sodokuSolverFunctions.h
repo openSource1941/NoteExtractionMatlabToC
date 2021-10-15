@@ -1,0 +1,7 @@
+#ifndef SODOKUSOLVERFUNCTIONS_H_INCLUDED
+#define SODOKUSOLVERFUNCTIONS_H_INCLUDED
+
+int findMissing(int a[], int b[], int n, int m);
+
+
+#endif // SODOKUSOLVERFUNCTIONS_H_INCLUDED
